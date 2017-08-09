@@ -1,11 +1,12 @@
 package com.buxlife.gamereviews.Domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Bux_Life on 2017/08/05.
  */
-public class User {
+public class User implements Serializable{
     private Date dateJoined;
     private String username;
     private String password;

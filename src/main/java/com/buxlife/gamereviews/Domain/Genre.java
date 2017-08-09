@@ -1,9 +1,11 @@
 package com.buxlife.gamereviews.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by Bux_Life on 2017/08/05.
  */
-public class Genre {
+public class Genre implements Serializable{
     private Game game;
     private String genre;
 

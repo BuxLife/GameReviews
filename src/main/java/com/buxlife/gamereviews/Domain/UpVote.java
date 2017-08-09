@@ -7,6 +7,14 @@ import java.io.Serializable;
  */
 
 public class UpVote implements Serializable {
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
     private int counter;
 
 
@@ -24,4 +32,18 @@ public class UpVote implements Serializable {
         public UpVote build(){return new UpVote(this);}
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UpVote upVote = (UpVote) o;
+
+        return counter == upVote.counter;
+    }
+
+    @Override
+    public int hashCode() {
+        return counter;
+    }
 }

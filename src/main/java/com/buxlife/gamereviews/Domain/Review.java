@@ -1,13 +1,41 @@
 package com.buxlife.gamereviews.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by Bux_Life on 2017/08/05.
  */
-public class Review {
+public class Review implements Serializable{
     private Reviewer reviewer;
+    private Game game;
     private String review;
+    private UpVote upVotes;
+    private DownVote downVotes;
+    private int votes;
     private int reviewID;
 
+    private Review(){}
+
+
+    public void setVotes(int votes) {
+        this.votes = votes;
+    }
+
+    public static class Builder{
+        private Reviewer activeReviewer;
+        private String currentReview;
+        private Game currentGame;
+        private int totalVotes;
+        private UpVote voteUp;
+        private DownVote voteDown;
+
+        public Builder review(String value)
+        {
+            this.currentReview = value;
+            return this;
+        }
+
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

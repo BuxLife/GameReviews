@@ -1,13 +1,14 @@
 package com.buxlife.gamereviews.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by Bux_Life on 2017/08/05.
  */
-public class Game {
+public class Game implements Serializable{
     private int gameID;
     private String title;
     private String description;
-    private Rating rating;
 
     @Override
     public boolean equals(Object o) {
@@ -48,11 +49,4 @@ public class Game {
         this.description = description;
     }
 
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
-    }
 }
