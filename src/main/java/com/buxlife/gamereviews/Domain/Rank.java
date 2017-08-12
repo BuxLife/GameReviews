@@ -7,9 +7,6 @@ import java.io.Serializable;
  */
 public class Rank implements Serializable{
     private String rank;
-    private Reviewer reviewer;
-    private Reputation reputation;
-
     public String getRank() {
         return rank;
     }
@@ -19,11 +16,4 @@ public class Rank implements Serializable{
 
     }
 
-    public Reviewer getReviewer() {
-        return reviewer;
-    }
-
-    public void setReviewer(Reviewer reviewer) {
-        this.reviewer = reviewer;
-    }
 }

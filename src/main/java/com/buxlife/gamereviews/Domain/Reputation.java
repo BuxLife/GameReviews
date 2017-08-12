@@ -7,13 +7,9 @@ import java.io.Serializable;
  */
 public class Reputation implements Serializable{
     private int reputation;
-    private Reviewer reviewer;
 
     public int getReputation() {
         return reputation;
     }
 
-    public Reviewer getReviewer() {
-        return reviewer;
-    }
 }

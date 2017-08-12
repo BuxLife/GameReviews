@@ -1,6 +1,7 @@
 package com.buxlife.gamereviews.Domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Bux_Life on 2017/08/05.
@@ -9,6 +10,7 @@ public class Game implements Serializable{
     private int gameID;
     private String title;
     private String description;
+    private List<Review> reviewList;
 
     @Override
     public boolean equals(Object o) {
