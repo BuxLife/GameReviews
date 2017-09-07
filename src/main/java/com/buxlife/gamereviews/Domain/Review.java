@@ -1,40 +1,46 @@
 package com.buxlife.gamereviews.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
  * Created by Bux_Life on 2017/08/05.
  */
+@Entity
 public class Review implements Serializable{
+    @Id
+    private String reviewID;
     private Reviewer reviewer;
     private Game game;
     private String review;
-    private UpVote upVotes;
-    private DownVote downVotes;
-    private int votes;
-    private int reviewID;
+
 
     private Review(){}
-
-
-    public void setVotes(int votes) {
-        this.votes = votes;
-    }
+    public Review(Builder builder){}
 
     public static class Builder{
+        private String reviewID;
         private Reviewer activeReviewer;
         private String currentReview;
         private Game currentGame;
-        private int totalVotes;
-        private UpVote voteUp;
-        private DownVote voteDown;
 
+        public Builder reviewer(Reviewer value){
+            this.activeReviewer = value;
+            return this;
+        }
         public Builder review(String value)
         {
             this.currentReview = value;
             return this;
         }
 
+        public Builder game(Game value){
+            this.currentGame = value;
+            return this;
+        }
+
+        public Review build(){ return new Review(this);}
     }
     @Override
     public boolean equals(Object o) {
@@ -46,16 +52,12 @@ public class Review implements Serializable{
         return reviewID == review.reviewID;
     }
 
-    @Override
-    public int hashCode() {
+
+    public String getReviewID() {
         return reviewID;
     }
 
-    public int getReviewID() {
-        return reviewID;
-    }
-
-    public void setReviewID(int reviewID) {
+    public void setReviewID(String reviewID) {
         this.reviewID = reviewID;
     }
 

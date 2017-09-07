@@ -1,16 +1,19 @@
 package com.buxlife.gamereviews.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.List;
+
 
 /**
  * Created by Bux_Life on 2017/08/05.
  */
+@Entity
 public class Game implements Serializable{
-    private int gameID;
+    @Id
+    private String gameID;
     private String title;
     private String description;
-    private List<Review> reviewList;
 
     @Override
     public boolean equals(Object o) {
@@ -22,16 +25,36 @@ public class Game implements Serializable{
         return gameID == game.gameID;
     }
 
-    @Override
-    public int hashCode() {
+    public Game(Builder builder){
+
+    }
+
+    public static class Builder{
+        private String id;
+        private String gameTitle;
+        private String discript;
+
+        public Builder id(String value){
+            this.id = value;
+            return this;
+        }
+        public Builder title(String value){
+            this.gameTitle = value;
+            return this;
+        }
+        public Builder description(String value){
+            this.discript = value;
+            return this;
+        }
+
+        public Game build(){ return new Game(this);}
+    }
+
+    public String getGameID() {
         return gameID;
     }
 
-    public int getGameID() {
-        return gameID;
-    }
-
-    public void setGameID(int gameID) {
+    public void setGameID(String gameID) {
         this.gameID = gameID;
     }
 
